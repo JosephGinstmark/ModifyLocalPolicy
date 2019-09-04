@@ -1,9 +1,12 @@
 # ModifyLocalPolicy
-A short script that modifies the SeDenyInteractiveLogonRight to use for direct restriction for local logon
 
-A short script that enables the adding/removing of ADUsers to the Local Security Policy "Deny log on locally".
+Created two functions to modify the User Rights Assignmnet on a local computer.
 
-The script has two functions, Add-DenyLocalLogon and Remove-DenyLocalLogon, that does what it says.
-
-Add-DenyLocalLogon <ADUser> will lookup the SID of the user and add it to the list of people that is denied to logon localy
-Remove-DenyLocalLogon <ADUser> will lookup the SID of the user and remove it from the list of people that is denied to logon localy.
+Add-UserToPolicy -Privilege <username/groupname> -Constant <constant>
+  
+Remove-UserFromPolicy -Privilege <username/groupname> -Constant <constant>
+  
+  Adds or Removes a group or user to the specifed Policy using it's constant name.
+  A list of constants that can be modified can be located over at Microsoft https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/user-rights-assignment
+  
+  
